@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-
-const display = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-  axes: ["SOFT"],
-});
 
 const sans = IBM_Plex_Sans({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -40,11 +33,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="de-AT"
-      className={`${display.variable} ${sans.variable} ${mono.variable}`}
-    >
-      <body className="font-sans antialiased">{children}</body>
+    <html lang="de-AT" className={`${sans.variable} ${mono.variable}`}>
+      <body className="font-sans antialiased bg-panel text-bone tabular">{children}</body>
     </html>
   );
 }

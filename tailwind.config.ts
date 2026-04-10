@@ -9,17 +9,31 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        kalkstein: "#F5F1EA",
-        schiefer: "#1C1917",
-        kupfer: "#B8502A",
-        werkbank: "#6B5842",
-        spaet: "#C9A96E",
-        moertel: "#E7DFD3",
+        panel: "#0B0F1A",
+        trace: "#141925",
+        bone: "#F2EFE8",
+        copper: "#C87A3C",
+        signal: "#FFC847",
+        mute: "#6B7080",
+        grid: "#1E2434",
       },
       fontFamily: {
-        display: ["var(--font-display)"],
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
+      },
+      animation: {
+        "pulse-led": "pulseLed 1.8s ease-in-out infinite",
+        "scan-line": "scanLine 3s linear infinite",
+      },
+      keyframes: {
+        pulseLed: {
+          "0%, 100%": { opacity: "1", boxShadow: "0 0 8px currentColor" },
+          "50%": { opacity: "0.4", boxShadow: "0 0 2px currentColor" },
+        },
+        scanLine: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
       },
     },
   },

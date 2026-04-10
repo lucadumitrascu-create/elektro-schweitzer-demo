@@ -7,18 +7,33 @@ html {
 }
 
 body {
-  color: #1C1917;
-  background-color: #F5F1EA;
+  color: #F2EFE8;
+  background-color: #0B0F1A;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: #B8502A;
-  color: #F5F1EA;
+  background: #C87A3C;
+  color: #0B0F1A;
 }
 
-.font-display {
-  font-optical-sizing: auto;
-  font-variation-settings: "SOFT" 50, "WONK" 0;
+/* Schematic grid — 40px squares, 1px lines at very low opacity */
+.schematic-grid {
+  background-image:
+    linear-gradient(to right, rgba(200, 122, 60, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 122, 60, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.schematic-grid-dense {
+  background-image:
+    linear-gradient(to right, rgba(242, 239, 232, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242, 239, 232, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Tabular numbers globally */
+.tabular {
+  font-variant-numeric: tabular-nums;
 }
