@@ -5,104 +5,88 @@ import Image from "next/image";
 
 const projects = [
   {
-    name: "PHOTOVOLTAIK FAMILIE WAGNER",
-    desc: "Komplette 12 kWp Anlage mit Speicher fur ein Einfamilienhaus.",
-    type: "PHOTOVOLTAIK",
-    year: "2024",
-    data: "12 kWp · MIT SPEICHER · BAD TATZMANNSDORF",
+    label: "PHOTOVOLTAIK · 2024",
+    name: "Photovoltaik Familie Wagner",
+    desc: "Komplette 12-kWp-Anlage mit Speicher für ein Einfamilienhaus. Von der Beratung bis zur Inbetriebnahme in sechs Wochen.",
+    data: "12 kWp · Mit Speicher · Bad Tatzmannsdorf",
     img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1000&q=80",
   },
   {
-    name: "SMART HOME VILLA OBERWART",
-    desc: "KNX-Komplettinstallation: Licht, Beschattung, Heizung, Sicherheit.",
-    type: "SMART HOME",
-    year: "2024",
-    data: "KNX SYSTEM · 14 RAUME · OBERWART",
+    label: "SMART HOME · 2024",
+    name: "Smart Home Villa Oberwart",
+    desc: "KNX-Komplettinstallation für 14 Räume: Licht, Beschattung, Heizung und Sicherheit zentral steuerbar.",
+    data: "KNX System · 14 Räume · Oberwart",
     img: "https://images.unsplash.com/photo-1558002038-1055907df827?w=1000&q=80",
   },
   {
-    name: "ALARMANLAGE GEWERBE",
-    desc: "Einbruchmeldeanlage mit Videouberwachung fur einen Gewerbebetrieb.",
-    type: "SICHERHEITSTECHNIK",
-    year: "2024",
-    data: "12 KAMERAS · PERIMETERSCHUTZ · BURGENLAND",
+    label: "SICHERHEITSTECHNIK · 2023",
+    name: "Alarmanlage Gewerbebetrieb",
+    desc: "Einbruchmeldeanlage mit 12-Kamera-Videoüberwachung und Perimeterschutz für einen regionalen Betrieb.",
+    data: "12 Kameras · Perimeterschutz · Burgenland",
     img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1000&q=80",
   },
   {
-    name: "ELEKTROINSTALLATION NEUBAU",
-    desc: "Komplette Elektrik fur ein Mehrfamilienhaus, 6 Wohneinheiten.",
-    type: "INSTALLATION",
-    year: "2024",
-    data: "6 EINHEITEN · NEUINSTALLATION · 2024",
+    label: "INSTALLATION · 2024",
+    name: "Elektroinstallation Neubau",
+    desc: "Komplette Elektrik für ein Mehrfamilienhaus mit sechs Wohneinheiten. Neuinstallation nach aktuellen Normen.",
+    data: "6 Einheiten · Neuinstallation · 2024",
     img: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1000&q=80",
   },
 ];
 
 export default function Projekte() {
   return (
-    <section id="projekte" className="bg-panel py-24 md:py-32">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <section id="projekte" className="bg-warm py-24 md:py-32">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-15%" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-20"
+          className="mb-16"
         >
-          <p className="font-mono text-[12px] text-steel uppercase tracking-[0.04em] mb-6">
-            02 / PROJEKTE
+          <p className="font-sans font-semibold text-[12px] uppercase text-smoke tracking-[0.16em] mb-3">
+            Unsere Arbeit
           </p>
-          <h2 className="font-grotesk font-bold leading-[0.95] -tracking-[0.015em]">
-            <span className="block text-steel text-[40px] md:text-[56px] xl:text-[64px]">AUSGEFUHRT.</span>
-            <span className="block text-volt text-[40px] md:text-[56px] xl:text-[64px]">BEWAHRT.</span>
+          <h2 className="font-serif text-[36px] md:text-[48px] xl:text-[56px] text-earth leading-[1.1]">
+            Projekte aus der Region.
           </h2>
-          <p className="text-zincc text-[16px] leading-[1.6] max-w-[480px] mt-6">
-            Ein Auszug unserer Installationen in der Region.
+          <p className="font-sans text-[17px] text-smoke leading-[1.7] max-w-[560px] mt-4">
+            Ein Auszug unserer Installationen — jedes Projekt mit derselben
+            Sorgfalt wie das erste.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {projects.map((p, i) => (
             <motion.article
               key={p.name}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-              className="group bg-white border border-zincc/15 hover:border-volt transition-colors duration-300"
+              transition={{ duration: 0.6, delay: (i % 2) * 0.1, ease: "easeOut" }}
+              className="group rounded-lg overflow-hidden border border-cream bg-warm hover:shadow-warm-lg transition-all duration-300 border-t-[3px] border-t-transparent hover:border-t-copper"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
                   src={p.img}
                   alt={p.name}
                   fill
-                  className="object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                  className="object-cover group-hover:scale-[1.04] transition-transform duration-500 ease-out"
+                  style={{ filter: "sepia(5%)" }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute bottom-3 left-3 bg-wire/80 backdrop-blur-sm px-3 py-1.5">
-                  <p className="font-mono text-[11px] text-white tracking-[0.04em]">
-                    {p.type} · {p.year}
-                  </p>
-                </div>
               </div>
-              <div className="p-6">
-                <h3 className="font-grotesk font-semibold text-[20px] text-steel">{p.name}</h3>
-                <p className="text-zincc text-[14px] leading-[1.5] mt-2">{p.desc}</p>
-                <p className="font-mono text-[12px] text-zincc tracking-[0.04em] mt-4 pt-4 border-t border-zincc/10">
-                  {p.data}
+              <div className="p-7">
+                <p className="font-sans font-semibold text-[12px] uppercase text-smoke tracking-[0.14em]">
+                  {p.label}
                 </p>
+                <h3 className="font-serif text-[22px] text-earth mt-2">{p.name}</h3>
+                <p className="font-sans text-[15px] text-smoke leading-[1.6] mt-2">{p.desc}</p>
+                <p className="font-sans font-semibold text-[13px] text-copper mt-4">{p.data}</p>
               </div>
             </motion.article>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <a
-            href="#kontakt"
-            className="font-mono text-[13px] text-steel hover:text-volt uppercase tracking-[0.04em] transition-colors"
-          >
-            Alle Referenzen ansehen →
-          </a>
         </div>
       </div>
     </section>

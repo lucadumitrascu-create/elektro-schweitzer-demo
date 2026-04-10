@@ -4,89 +4,80 @@ import { motion } from "framer-motion";
 
 const reasons = [
   {
-    num: "01",
-    title: "MEISTERBETRIEB SEIT 1974",
-    desc: "Uber 50 Jahre Erfahrung in allen Bereichen der Elektrotechnik. Drei Generationen Handwerksqualitat.",
+    title: "Meisterbetrieb seit 1974",
+    desc: "Über 50 Jahre Erfahrung in allen Bereichen der Elektrotechnik. Drei Generationen Handwerksqualität aus Bad Tatzmannsdorf.",
   },
   {
-    num: "02",
-    title: "ALLES AUS EINER HAND",
-    desc: "Von der Beratung uber die Planung bis zur Installation und Wartung. Ein Ansprechpartner fur alle Gewerke.",
+    title: "Alles aus einer Hand",
+    desc: "Von der ersten Beratung über die Planung bis zur Installation und Wartung. Ein Ansprechpartner — keine Subunternehmer.",
   },
   {
-    num: "03",
-    title: "REGIONAL VERWURZELT",
-    desc: "In Bad Tatzmannsdorf zuhause, in ganz Burgenland und Umgebung im Einsatz. Kurze Wege, schnelle Reaktion.",
+    title: "Regional verwurzelt",
+    desc: "In Bad Tatzmannsdorf zuhause, in ganz Burgenland und Umgebung im Einsatz. Wir kennen die Region und die Menschen.",
   },
   {
-    num: "04",
-    title: "ZUKUNFTSORIENTIERT",
-    desc: "Photovoltaik, Smart Home, E-Mobilitat: Wir installieren heute, was morgen Standard ist.",
+    title: "Zukunft installieren",
+    desc: "Photovoltaik, Smart Home, E-Mobilität: Wir bringen die Technik von morgen in Ihr Zuhause — verständlich erklärt und sauber umgesetzt.",
   },
   {
-    num: "05",
-    title: "NOTDIENST & VERLASSLICHKEIT",
-    desc: "Im Ernstfall erreichbar. Weil Strom keine Offnungszeiten kennt.",
+    title: "Notdienst & Verlässlichkeit",
+    desc: "Im Ernstfall erreichbar — weil Strom keine Öffnungszeiten kennt. Und im Alltag: pünktlich, ordentlich, fair.",
   },
 ];
 
 export default function WarumWir() {
   return (
-    <section className="bg-wire py-24 md:py-32">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <section className="bg-earth py-24 md:py-32">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-15%" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-16"
+          className="mb-12"
         >
-          <p className="font-mono text-[12px] text-signal uppercase tracking-[0.04em] mb-6">
-            03 / WARUM SCHWEITZER
+          <p className="font-sans font-semibold text-[12px] uppercase text-copper tracking-[0.16em] mb-3">
+            Warum Schweitzer?
           </p>
-          <h2 className="font-grotesk font-bold text-white text-[40px] md:text-[56px] xl:text-[64px] -tracking-[0.015em]">
-            FUNF GRUNDE.
+          <h2 className="font-serif text-[48px] md:text-[64px] xl:text-[80px] text-warm leading-[1.05]">
+            Fünf gute Gründe.
           </h2>
         </motion.div>
 
-        <div>
+        <div className="space-y-10">
           {reasons.map((r, i) => (
             <motion.div
-              key={r.num}
-              initial={{ opacity: 0, y: 8 }}
+              key={r.title}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
-              className="border-t border-steel py-8 md:py-10"
+              className="border-l-2 border-copper pl-6 max-w-2xl"
             >
-              <div className="grid grid-cols-12 gap-6 items-start">
-                <div className="col-span-12 md:col-span-2">
-                  <p className="font-mono text-[40px] md:text-[64px] text-steel leading-[1]">{r.num}</p>
-                </div>
-                <div className="col-span-12 md:col-span-10">
-                  <h3 className="font-grotesk font-semibold text-[20px] md:text-[24px] text-white -tracking-[0.005em]">
-                    {r.title}
-                  </h3>
-                  <p className="text-zincc text-[15px] leading-[1.6] mt-3 max-w-[640px]">{r.desc}</p>
-                </div>
-              </div>
+              <h3 className="font-serif text-[24px] text-warm">
+                {String(i + 1).padStart(2, "0")}  {r.title}
+              </h3>
+              <p className="font-sans text-[16px] text-white/70 leading-[1.65] mt-2">{r.desc}</p>
             </motion.div>
           ))}
-          <div className="border-t border-steel" />
         </div>
 
         {/* CTA */}
-        <div className="border-y border-signal mt-20 py-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <h3 className="font-grotesk font-bold text-[24px] md:text-[32px] text-white -tracking-[0.01em]">
-            Uberzeugt? Sprechen wir uber Ihr Projekt.
-          </h3>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mt-16 flex flex-col sm:flex-row sm:items-center gap-6"
+        >
+          <h3 className="font-serif text-[28px] md:text-[32px] text-warm">Überzeugt?</h3>
           <a
             href="#kontakt"
-            className="bg-volt hover:bg-red-700 text-white font-grotesk font-semibold text-[14px] uppercase tracking-wider px-8 py-4 transition-colors rounded-sm whitespace-nowrap self-start md:self-auto"
+            className="bg-sky hover:bg-sky/90 text-white font-sans font-semibold text-[15px] px-7 py-[14px] rounded-lg transition-colors duration-250 self-start"
           >
             Jetzt Kontakt aufnehmen →
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

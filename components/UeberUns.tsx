@@ -5,26 +5,24 @@ import Image from "next/image";
 
 export default function UeberUns() {
   return (
-    <section id="ueber-uns" className="bg-panel py-24 md:py-32">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <section id="ueber-uns" className="bg-warm py-24 md:py-32">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-15%" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-16"
+          className="mb-12"
         >
-          <p className="font-mono text-[12px] text-steel uppercase tracking-[0.04em] mb-6">
-            04 / UBER UNS
+          <p className="font-sans font-semibold text-[12px] uppercase text-smoke tracking-[0.16em] mb-3">
+            Wer wir sind
           </p>
-          <h2 className="font-grotesk font-bold leading-[0.95] -tracking-[0.015em]">
-            <span className="block text-steel text-[40px] md:text-[56px] xl:text-[64px]">FAMILIE.</span>
-            <span className="block text-steel text-[40px] md:text-[56px] xl:text-[64px]">HANDWERK.</span>
-            <span className="block text-volt text-[40px] md:text-[56px] xl:text-[64px]">VERANTWORTUNG.</span>
+          <h2 className="font-serif text-[36px] md:text-[48px] xl:text-[56px] text-earth leading-[1.1]">
+            Familie. Handwerk. Verantwortung.
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-12 gap-12 md:gap-16">
+        <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -32,18 +30,17 @@ export default function UeberUns() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="md:col-span-5"
           >
-            <div className="relative aspect-[4/5]">
+            <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-warm-lg" style={{ transform: "rotate(-0.5deg)" }}>
               <Image
-                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1000&q=80"
-                alt="Das Team"
+                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=900&q=80"
+                alt="Das Team von Elektro Schweitzer"
                 fill
                 className="object-cover"
+                style={{ filter: "sepia(5%)" }}
                 sizes="(max-width: 768px) 100vw, 40vw"
               />
             </div>
-            <p className="font-mono text-[11px] text-zincc tracking-[0.04em] mt-3">
-              DAS TEAM · BAD TATZMANNSDORF
-            </p>
+            <p className="font-sans text-[13px] text-smoke mt-4 ml-1">Das Team · Bad Tatzmannsdorf</p>
           </motion.div>
 
           <motion.div
@@ -53,32 +50,28 @@ export default function UeberUns() {
             transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
             className="md:col-span-7"
           >
-            <div className="space-y-6 text-steel text-[16px] leading-[1.7] max-w-[600px]">
+            <div className="space-y-6 font-sans text-[17px] text-earth leading-[1.7]">
               <p>
                 Was 1974 als Ein-Mann-Betrieb in Bad Tatzmannsdorf begann, ist
                 heute ein Familienunternehmen mit einem eingespielten Team aus
                 Technikern, Meistern und Lehrlingen.
               </p>
               <p>
-                Elektro Schweitzer steht fur das, was gute Elektrotechnik
-                ausmacht: saubere Arbeit, ehrliche Beratung und Losungen, die
-                jahrelang funktionieren. Ohne Schnickschnack, aber mit vollem
-                Einsatz.
+                Elektro Schweitzer steht für saubere Arbeit, ehrliche Beratung und
+                Lösungen, die jahrelang funktionieren. Ohne Schnickschnack, aber
+                mit vollem Einsatz.
               </p>
               <p>
-                Ob Einfamilienhaus oder Gewerbeobjekt, ob Neuinstallation oder
-                Sanierung — wir behandeln jedes Projekt, als ware es unser
-                eigenes Zuhause.
+                Ob Einfamilienhaus oder Gewerbeobjekt, Neuinstallation oder
+                Sanierung — wir behandeln jedes Projekt, als wäre es unser eigenes
+                Zuhause.
               </p>
             </div>
 
-            <div className="border-t border-steel/15 mt-10 pt-6 flex flex-wrap gap-x-10 gap-y-3">
-              <p className="font-mono text-[12px] text-zincc tracking-[0.04em]">
-                MITGLIED DER WKO BURGENLAND
-              </p>
-              <p className="font-mono text-[12px] text-zincc tracking-[0.04em]">
-                MEISTERBETRIEB NACH § 94 GEWO
-              </p>
+            <div className="mt-10 pt-6 border-t border-cream max-w-xl flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8">
+              <p className="font-sans text-[14px] text-smoke">Mitglied der WKO Burgenland</p>
+              <span className="hidden sm:inline text-cream">·</span>
+              <p className="font-sans text-[14px] text-smoke">Meisterbetrieb nach § 94 GewO</p>
             </div>
           </motion.div>
         </div>

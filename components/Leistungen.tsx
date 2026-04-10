@@ -1,131 +1,113 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Zap, Wifi } from "lucide-react";
+import { Shield, Sun, Wifi } from "lucide-react";
 
-const blocks = [
+const cards = [
   {
-    num: "01",
     Icon: Shield,
-    name: "SICHERHEIT & SCHUTZ",
-    desc: "Professionelle Sicherheitstechnik fur Ihr Zuhause und Ihren Betrieb. Von der Planung bis zur Wartung.",
-    services: [
+    title: "Sicherheit & Schutz",
+    desc: "Wir schützen, was Ihnen wichtig ist. Professionelle Sicherheitstechnik für Ihr Zuhause und Ihren Betrieb.",
+    items: [
       "Alarmanlagen & Einbruchschutz",
-      "Blitzschutz & Uberspannungsschutz",
-      "Videouberwachungssysteme",
+      "Blitzschutz & Überspannungsschutz",
+      "Videoüberwachungssysteme",
       "Rauchmelder & Brandschutz",
-      "Prufprotokolle & E-Befund",
+      "Prüfprotokolle & E-Befund",
     ],
   },
   {
-    num: "02",
-    Icon: Zap,
-    name: "ENERGIE & EFFIZIENZ",
-    desc: "Nachhaltige Energielosungen, die Kosten senken und die Umwelt schonen. Beratung, Installation, Wartung.",
-    services: [
-      "Photovoltaik & Speicherlosungen",
+    Icon: Sun,
+    title: "Energie & Effizienz",
+    desc: "Nachhaltig und kosteneffizient. Wir installieren die Energielösungen von morgen — heute.",
+    items: [
+      "Photovoltaik & Speicherlösungen",
       "Infrarotheizungen",
-      "LED-Beleuchtungslosungen",
+      "LED-Beleuchtungslösungen",
       "Elektroinstallation Neubau & Sanierung",
-      "Zahlerkasten & Verteileraufbau",
+      "Zählerkasten & Verteileraufbau",
     ],
   },
   {
-    num: "03",
     Icon: Wifi,
-    name: "KOMFORT & KOMMUNIKATION",
-    desc: "Intelligente Haustechnik fur modernen Wohnkomfort. Vernetzt, einfach, zukunftssicher.",
-    services: [
+    title: "Komfort & Kommunikation",
+    desc: "Ihr Zuhause, intelligent vernetzt. Moderne Haustechnik für mehr Lebensqualität.",
+    items: [
       "Smart Home Systeme",
       "SAT-Anlagen & Empfangstechnik",
       "Multimedia & Netzwerktechnik",
-      "Haushaltsgerate & Beratung",
-      "Sprechanlagen & Turkommunikation",
+      "Haushaltsgeräte & Beratung",
+      "Sprechanlagen & Türkommunikation",
     ],
   },
 ];
 
 export default function Leistungen() {
   return (
-    <section id="leistungen" className="bg-wire py-24 md:py-32">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <section id="leistungen" className="bg-sand py-24 md:py-32">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-15%" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-20"
+          className="mb-16"
         >
-          <p className="font-mono text-[12px] text-signal uppercase tracking-[0.04em] mb-6">
-            01 / LEISTUNGEN
+          <p className="font-sans font-semibold text-[12px] uppercase text-smoke tracking-[0.16em] mb-3">
+            Was wir für Sie tun
           </p>
-          <h2 className="font-grotesk font-bold leading-[0.95] -tracking-[0.015em]">
-            <span className="block text-white text-[40px] md:text-[56px] xl:text-[64px]">DREI BEREICHE.</span>
-            <span className="block text-zincc text-[40px] md:text-[56px] xl:text-[64px]">EINE KOMPETENZ.</span>
+          <h2 className="font-serif text-[36px] md:text-[48px] xl:text-[56px] text-earth leading-[1.1]">
+            Drei Bereiche, eine Kompetenz.
           </h2>
-          <p className="text-zincc text-[16px] leading-[1.6] max-w-[560px] mt-6">
-            Wir decken drei essenzielle Bereiche der Elektrotechnik ab — jeder
-            einzelne mit uber 50 Jahren Fachkompetenz.
+          <p className="font-sans text-[17px] text-smoke leading-[1.7] max-w-[560px] mt-4">
+            Ob Sicherheit, Energie oder Komfort — wir bieten Ihnen durchdachte
+            Lösungen aus einer Hand. Immer persönlich, immer professionell.
           </p>
         </motion.div>
 
-        <div>
-          {blocks.map((b, i) => (
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+          {cards.map((c, i) => (
             <motion.div
-              key={b.num}
-              initial={{ opacity: 0, y: 12 }}
+              key={c.title}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-              className="border-t border-steel py-16"
+              className="group bg-warm rounded-lg shadow-warm hover:shadow-warm-lg p-10 transition-all duration-250 hover:-translate-y-1 border-t-[3px] border-transparent hover:border-copper"
             >
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6">
-                {/* Number + icon */}
-                <div className="md:col-span-3">
-                  <p className="font-mono text-[64px] md:text-[96px] text-steel leading-[1]">
-                    {b.num}
-                  </p>
-                  <b.Icon className="text-volt mt-4" size={32} strokeWidth={1.5} />
-                </div>
-
-                {/* Name + desc */}
-                <div className="md:col-span-4">
-                  <h3 className="font-grotesk font-bold text-[28px] md:text-[40px] xl:text-[48px] text-white uppercase leading-[1] -tracking-[0.01em]">
-                    {b.name}
-                  </h3>
-                  <p className="text-zincc text-[16px] leading-[1.6] mt-4 max-w-[360px]">
-                    {b.desc}
-                  </p>
-                </div>
-
-                {/* Services list */}
-                <ul className="md:col-span-5 space-y-3">
-                  {b.services.map((s) => (
-                    <li
-                      key={s}
-                      className="group flex items-center gap-3 cursor-default hover:translate-x-2 transition-transform duration-200 ease-out"
-                    >
-                      <span className="font-mono text-volt group-hover:text-current transition-colors text-[14px]">→</span>
-                      <span className="font-mono text-[13px] text-white tracking-[0.02em]">{s}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <c.Icon size={36} strokeWidth={1.5} className="text-copper" />
+              <h3 className="font-serif text-[24px] text-earth mt-5">{c.title}</h3>
+              <p className="font-sans text-[15px] text-smoke leading-[1.6] mt-3">{c.desc}</p>
+              <ul className="mt-6 space-y-[10px]">
+                {c.items.map((s) => (
+                  <li key={s} className="font-sans text-[15px] text-earth flex items-start gap-3">
+                    <span className="text-copper mt-[7px] block w-1.5 h-1.5 rounded-full bg-copper flex-shrink-0" />
+                    <span>{s}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#kontakt"
+                className="inline-block mt-6 font-sans font-semibold text-[14px] text-copper hover:text-earth transition-colors duration-250"
+              >
+                Mehr erfahren →
+              </a>
             </motion.div>
           ))}
-          <div className="border-t border-steel" />
         </div>
+      </div>
 
-        {/* CTA banner */}
-        <div className="border-y border-signal mt-20 py-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <h3 className="font-grotesk font-bold text-[24px] md:text-[32px] text-white -tracking-[0.01em]">
-            Welche Losung passt zu Ihnen?
+      {/* CTA band */}
+      <div className="border-y border-cream mt-20 py-12 bg-sand">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 flex flex-col items-center text-center gap-6">
+          <h3 className="font-serif text-[28px] md:text-[32px] text-earth">
+            Welche Lösung passt zu Ihnen?
           </h3>
           <a
             href="#kontakt"
-            className="bg-volt hover:bg-red-700 text-white font-grotesk font-semibold text-[14px] uppercase tracking-wider px-8 py-4 transition-colors rounded-sm whitespace-nowrap self-start md:self-auto"
+            className="bg-sky hover:bg-sky/90 text-white font-sans font-semibold text-[15px] px-7 py-[14px] rounded-lg transition-colors duration-250"
           >
-            Kostenlose Beratung vereinbaren →
+            Jetzt kostenlos beraten lassen →
           </a>
         </div>
       </div>

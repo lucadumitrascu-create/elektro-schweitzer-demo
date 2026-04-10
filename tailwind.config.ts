@@ -9,17 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        volt: "#FF3B30",
-        signal: "#FFB800",
-        wire: "#0A0A0A",
-        panel: "#F7F6F3",
-        steel: "#2A2D2E",
-        zincc: "#71757A",
-        current: "#1E6FD9",
+        warm: "#FFFBF5",
+        sand: "#F0EBE3",
+        earth: "#2C2418",
+        copper: "#C07A45",
+        sky: "#4A7FA5",
+        leaf: "#5B7C52",
+        smoke: "#8C8578",
+        cream: "#E8E0D4",
       },
       fontFamily: {
-        grotesk: ["var(--font-grotesk)"],
-        mono: ["var(--font-mono)"],
+        serif: ["var(--font-serif)"],
+        sans: ["var(--font-sans)"],
+      },
+      boxShadow: {
+        warm: "0 4px 24px rgba(44, 36, 24, 0.08)",
+        "warm-lg": "0 12px 40px rgba(44, 36, 24, 0.12)",
       },
     },
   },

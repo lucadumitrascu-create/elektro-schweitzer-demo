@@ -1,7 +1,6 @@
-import PhoneBar from "@/components/PhoneBar";
+import TopBar from "@/components/TopBar";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import SocialProof from "@/components/SocialProof";
 import Leistungen from "@/components/Leistungen";
 import Projekte from "@/components/Projekte";
 import WarumWir from "@/components/WarumWir";
@@ -12,11 +11,10 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <PhoneBar />
+      <TopBar />
       <Navigation />
       <main>
         <Hero />
-        <SocialProof />
         <Leistungen />
         <Projekte />
         <WarumWir />
