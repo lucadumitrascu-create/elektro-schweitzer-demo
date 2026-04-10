@@ -9,8 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        volt: "#FF3B30",
+        signal: "#FFB800",
+        wire: "#0A0A0A",
+        panel: "#F7F6F3",
+        steel: "#2A2D2E",
+        zincc: "#71757A",
+        current: "#1E6FD9",
+      },
+      fontFamily: {
+        grotesk: ["var(--font-grotesk)"],
+        mono: ["var(--font-mono)"],
       },
     },
   },
