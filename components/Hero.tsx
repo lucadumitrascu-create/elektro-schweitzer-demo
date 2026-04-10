@@ -83,8 +83,8 @@ export default function Hero() {
               <div className="absolute inset-0 border border-moertel" style={{ transform: "translate(12px, 12px)" }} />
               <div className="relative h-full overflow-hidden shadow-2xl shadow-schiefer/10">
                 <Image
-                  src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900&q=80"
-                  alt="Meister bei der Arbeit im Werkstatt"
+                  src="https://images.unsplash.com/photo-1682345262055-8f95f3c513ea?w=900&q=85"
+                  alt="Meisterhände beim Verdrahten — Elektro Schweitzer Werkstatt"
                   fill
                   className="object-cover"
                   style={{ filter: "sepia(8%) saturate(0.95)" }}
