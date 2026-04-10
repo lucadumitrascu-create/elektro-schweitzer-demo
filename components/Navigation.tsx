@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 
 const links = [
   { label: "Leistungen", href: "#leistungen" },
-  { label: "Projekte", href: "#projekte" },
-  { label: "Über uns", href: "#ueber-uns" },
+  { label: "Referenzen", href: "#referenzen" },
+  { label: "Unternehmen", href: "#unternehmen" },
   { label: "Kontakt", href: "#kontakt" },
 ];
 
@@ -16,7 +16,7 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const h = () => setScrolled(window.scrollY > 30);
+    const h = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", h);
     return () => window.removeEventListener("scroll", h);
   }, []);
@@ -24,39 +24,42 @@ export default function Navigation() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 h-[72px] bg-warm transition-all duration-300 ${
-          scrolled ? "shadow-warm" : ""
+        className={`fixed top-0 left-0 right-0 z-50 h-[72px] transition-colors duration-300 ${
+          scrolled ? "bg-kalkstein/95 backdrop-blur-sm border-b border-moertel" : "bg-transparent"
         }`}
       >
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 h-full flex items-center justify-between">
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-10 h-full flex items-center justify-between">
           <a href="#" className="flex flex-col leading-none">
-            <span className="font-serif text-[22px] md:text-[24px] text-earth">Elektro Schweitzer</span>
-            <span className="font-sans font-semibold text-[10px] md:text-[11px] text-smoke uppercase tracking-[0.18em] mt-1">
-              Elektrotechnik
+            <span className="font-display text-[22px] md:text-[24px] text-schiefer">
+              Elektro Schweitzer
+            </span>
+            <span className="font-mono text-[10px] tracking-[0.18em] text-werkbank uppercase mt-1">
+              Meisterbetrieb &middot; seit 1974
             </span>
           </a>
 
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-10">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="font-sans font-semibold text-[14px] text-earth hover:text-copper transition-colors duration-250"
+                className="font-sans text-[14px] text-schiefer hover:text-kupfer transition-colors duration-250"
               >
                 {l.label}
               </a>
             ))}
             <a
-              href="#kontakt"
-              className="font-sans font-semibold text-[14px] text-copper border-b border-copper/40 hover:border-copper transition-colors duration-250 pb-0.5"
+              href="tel:+4333538080"
+              className="flex items-center gap-2 font-mono text-[13px] text-kupfer hover:text-schiefer transition-colors duration-250"
             >
-              Beratung anfragen
+              <Phone size={14} strokeWidth={1.5} />
+              +43 3353 8080
             </a>
           </nav>
 
           <button
             onClick={() => setOpen(!open)}
-            className="lg:hidden text-earth"
+            className="lg:hidden text-schiefer"
             aria-label="Menü"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
@@ -71,7 +74,7 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 bg-warm flex flex-col justify-center px-8 lg:hidden"
+            className="fixed inset-0 z-40 bg-kalkstein flex flex-col justify-center px-8 lg:hidden"
           >
             {links.map((l, i) => (
               <motion.a
@@ -81,20 +84,20 @@ export default function Navigation() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.06, duration: 0.3 }}
-                className="font-serif text-3xl text-earth py-3 hover:text-copper transition-colors"
+                className="font-display text-[40px] text-schiefer py-3 hover:text-kupfer transition-colors"
               >
                 {l.label}
               </motion.a>
             ))}
             <motion.a
-              href="#kontakt"
-              onClick={() => setOpen(false)}
+              href="tel:+4333538080"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="mt-6 inline-block bg-sky text-white font-sans font-semibold text-[15px] px-6 py-3 rounded-lg w-fit"
+              className="mt-6 flex items-center gap-3 font-mono text-[16px] text-kupfer"
             >
-              Beratung anfragen →
+              <Phone size={18} strokeWidth={1.5} />
+              +43 3353 8080
             </motion.a>
           </motion.div>
         )}

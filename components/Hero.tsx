@@ -2,38 +2,35 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Counter from "./Counter";
-
-const stats = [
-  { value: 50, suffix: "+", label: "Jahre Erfahrung" },
-  { value: 3000, suffix: "+", label: "Projekte" },
-  { value: 24, suffix: "h", label: "Notdienst" },
-  { value: 100, suffix: "%", label: "Meisterqualität" },
-];
 
 export default function Hero() {
   return (
-    <section className="bg-warm relative">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8 pt-20 md:pt-[140px] pb-20 md:pb-[120px]">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <section className="bg-kalkstein relative overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-10 pt-36 md:pt-48 pb-20 md:pb-32">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Text */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 relative z-10">
             <motion.p
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="font-sans font-semibold text-[12px] uppercase text-copper tracking-[0.16em] mb-4"
+              className="font-mono text-[11px] tracking-[0.18em] text-kupfer uppercase mb-8"
             >
-              Elektrotechnik aus Burgenland
+              01 / Manifest &nbsp;&middot;&nbsp; Elektrotechnik aus Burgenland
             </motion.p>
 
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-              className="font-serif text-[48px] md:text-[64px] xl:text-[80px] text-earth leading-[1.05]"
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="font-display text-[56px] md:text-[88px] xl:text-[112px] text-schiefer leading-[0.95] -tracking-[0.01em]"
+              style={{ fontWeight: 400 }}
             >
-              Strom ist Vertrauens&shy;sache.
+              Strom ist
+              <br />
+              <span className="italic text-kupfer" style={{ fontVariationSettings: '"SOFT" 100' }}>
+                Vertrauens&shy;sache.
+              </span>
               <br />
               Seit 1974.
             </motion.h1>
@@ -41,89 +38,71 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-              className="mt-6 mb-6"
+              transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+              className="mt-10 flex items-start gap-6"
             >
-              <div className="w-20 h-px bg-copper" />
+              <div className="mt-3 w-20 h-px bg-kupfer flex-shrink-0" />
+              <p className="font-sans text-[16px] md:text-[17px] text-werkbank leading-[1.7] max-w-[480px]">
+                Drei Generationen Elektrotechnik aus Bad Tatzmannsdorf. Sicherheit,
+                Energie und Komfort — Meisterqualität für Ihr Zuhause und Ihren
+                Betrieb in Burgenland und Umgebung.
+              </p>
             </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-              className="font-sans text-[17px] text-smoke leading-[1.7] max-w-[540px]"
-            >
-              Elektroinstallation, Photovoltaik, Smart Home und Sicherheitstechnik.
-              Persönlich, kompetent und regional — für Privathaushalte und Betriebe
-              in Bad Tatzmannsdorf und Umgebung.
-            </motion.p>
-
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.65, ease: "easeOut" }}
-              className="flex flex-wrap gap-4 mt-10"
+              transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
+              className="flex flex-wrap items-center gap-8 mt-12"
             >
               <a
                 href="#kontakt"
-                className="bg-sky hover:bg-sky/90 text-white font-sans font-semibold text-[15px] px-7 py-[14px] rounded-lg transition-colors duration-250"
+                className="font-sans text-[14px] text-schiefer hover:text-kupfer transition-colors duration-250 group"
               >
-                Kostenlose Beratung anfragen
+                <span className="text-kupfer mr-2">→</span>
+                Beratung anfragen
+                <span className="block w-full h-px bg-schiefer mt-1 group-hover:bg-kupfer transition-colors" />
               </a>
               <a
                 href="#leistungen"
-                className="border border-cream text-earth hover:bg-sand font-sans font-semibold text-[15px] px-7 py-[14px] rounded-lg transition-colors duration-250"
+                className="font-sans text-[14px] text-werkbank hover:text-kupfer transition-colors duration-250"
               >
-                Unsere Leistungen →
+                ↓ &nbsp;Leistungen ansehen
               </a>
             </motion.div>
           </div>
 
           {/* Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="lg:col-span-5 order-first lg:order-last"
+            initial={{ opacity: 0, y: 20, rotate: 2 }}
+            animate={{ opacity: 1, y: 0, rotate: 1.5 }}
+            transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+            className="lg:col-span-5 relative"
           >
-            <div className="relative aspect-[4/5] max-w-[420px] mx-auto float-anim">
-              <div className="absolute inset-0 rounded-lg overflow-hidden shadow-warm-lg">
+            <div className="relative aspect-[3/4] max-w-[440px] mx-auto lg:ml-auto">
+              <div className="absolute inset-0 border border-moertel" style={{ transform: "translate(12px, 12px)" }} />
+              <div className="relative h-full overflow-hidden shadow-2xl shadow-schiefer/10">
                 <Image
                   src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900&q=80"
-                  alt="Elektriker Meister bei der Arbeit"
+                  alt="Meister bei der Arbeit im Werkstatt"
                   fill
                   className="object-cover"
-                  style={{ filter: "sepia(5%)" }}
+                  style={{ filter: "sepia(8%) saturate(0.95)" }}
                   priority
-                  sizes="(max-width: 1024px) 80vw, 400px"
+                  sizes="(max-width: 1024px) 80vw, 440px"
                 />
+              </div>
+              <div className="absolute -bottom-8 left-0 right-0 flex justify-between px-1">
+                <p className="font-mono text-[10px] tracking-[0.15em] text-werkbank uppercase">
+                  Fig. 01
+                </p>
+                <p className="font-mono text-[10px] tracking-[0.15em] text-werkbank uppercase">
+                  Werkstatt &middot; 2026
+                </p>
               </div>
             </div>
           </motion.div>
         </div>
-
-        {/* Trust row */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4"
-        >
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className={`text-center md:text-left py-4 md:py-0 px-2 md:px-6 ${
-                i < stats.length - 1 ? "md:border-r border-cream" : ""
-              }`}
-            >
-              <p className="font-serif text-[40px] md:text-[48px] text-copper leading-none">
-                <Counter target={s.value} suffix={s.suffix} />
-              </p>
-              <p className="font-sans text-[14px] text-smoke mt-2">{s.label}</p>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

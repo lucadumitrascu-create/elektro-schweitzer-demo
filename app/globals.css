@@ -7,23 +7,18 @@ html {
 }
 
 body {
-  color: #2C2418;
-  background-color: #FFFBF5;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  color: #1C1917;
+  background-color: #F5F1EA;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: #C07A45;
-  color: #FFFBF5;
+  background: #B8502A;
+  color: #F5F1EA;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(1deg); }
-  50% { transform: translateY(-6px) rotate(1deg); }
-}
-
-.float-anim {
-  animation: float 6s ease-in-out infinite;
+.font-display {
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 50, "WONK" 0;
 }

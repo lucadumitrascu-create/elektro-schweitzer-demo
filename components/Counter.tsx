@@ -13,7 +13,7 @@ export default function Counter({
   duration?: number;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const isInView = useInView(ref, { once: true, amount: 0.4 });
   const [val, setVal] = useState(0);
 
   useEffect(() => {
@@ -22,7 +22,6 @@ export default function Counter({
     const start = performance.now();
     const tick = (now: number) => {
       const t = Math.min((now - start) / duration, 1);
-      // ease-out cubic
       const eased = 1 - Math.pow(1 - t, 3);
       setVal(Math.floor(eased * target));
       if (t < 1) raf = requestAnimationFrame(tick);

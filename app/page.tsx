@@ -1,24 +1,26 @@
-import TopBar from "@/components/TopBar";
+import SideLabel from "@/components/SideLabel";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import TrustStrip from "@/components/TrustStrip";
 import Leistungen from "@/components/Leistungen";
-import Projekte from "@/components/Projekte";
-import WarumWir from "@/components/WarumWir";
-import UeberUns from "@/components/UeberUns";
+import Referenzen from "@/components/Referenzen";
+import FuenfGruende from "@/components/FuenfGruende";
+import Unternehmen from "@/components/Unternehmen";
 import Kontakt from "@/components/Kontakt";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
-      <TopBar />
+      <SideLabel />
       <Navigation />
       <main>
         <Hero />
+        <TrustStrip />
         <Leistungen />
-        <Projekte />
-        <WarumWir />
-        <UeberUns />
+        <Referenzen />
+        <FuenfGruende />
+        <Unternehmen />
         <Kontakt />
         <Footer />
       </main>
