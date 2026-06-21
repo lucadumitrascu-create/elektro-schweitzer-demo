@@ -79,7 +79,7 @@ export default function Hero() {
                 </p>
                 <div className="h-px bg-grid flex-grow max-w-[60px]" />
               </div>
-              <dl className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3 max-w-2xl">
+              <dl className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3 max-w-2xl">
                 {specs.map(([k, v]) => (
                   <div key={k} className="flex items-baseline gap-2">
                     <dt className="font-mono text-[10px] tracking-[0.15em] text-mute uppercase whitespace-nowrap">
