@@ -9,31 +9,37 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        panel: "#0B0F1A",
-        trace: "#141925",
-        bone: "#F2EFE8",
-        copper: "#C87A3C",
-        signal: "#FFC847",
-        mute: "#6B7080",
-        grid: "#1E2434",
+        // Electric Modern — light, one committed accent
+        paper: "#FAFAF7", // warm off-white page background
+        surface: "#FFFFFF", // cards / elevated
+        ink: "#0E1116", // near-black, warm-tinted text
+        graphite: "#363B45", // strong secondary text
+        muted: "#6B7280", // muted text
+        hairline: "#E8E7E1", // borders / dividers
+        electric: "#1B43F0", // the accent — cobalt electric blue
+        "electric-ink": "#1230B4", // accent hover / pressed
+        "electric-tint": "#EAEEFF", // light accent surface
       },
       fontFamily: {
-        sans: ["var(--font-sans)"],
-        mono: ["var(--font-mono)"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
-      animation: {
-        "pulse-led": "pulseLed 1.8s ease-in-out infinite",
-        "scan-line": "scanLine 3s linear infinite",
+      boxShadow: {
+        card: "0 1px 2px rgba(14,17,22,0.04), 0 12px 32px -16px rgba(14,17,22,0.12)",
+        "card-hover": "0 2px 4px rgba(14,17,22,0.05), 0 24px 48px -20px rgba(27,67,240,0.20)",
+        electric: "0 12px 28px -10px rgba(27,67,240,0.45)",
+      },
+      borderRadius: {
+        xl2: "1.25rem",
       },
       keyframes: {
-        pulseLed: {
-          "0%, 100%": { opacity: "1", boxShadow: "0 0 8px currentColor" },
-          "50%": { opacity: "0.4", boxShadow: "0 0 2px currentColor" },
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(16px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
         },
-        scanLine: {
-          "0%": { transform: "translateX(-100%)" },
-          "100%": { transform: "translateX(100%)" },
-        },
+      },
+      animation: {
+        "fade-up": "fade-up 0.7s cubic-bezier(0.16,1,0.3,1) both",
       },
     },
   },

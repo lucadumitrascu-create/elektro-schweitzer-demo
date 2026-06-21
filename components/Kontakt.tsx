@@ -2,103 +2,132 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  ArrowRight,
+  CheckCircle,
+} from "lucide-react";
+
+const ease = [0.16, 1, 0.3, 1] as const;
+
+const fadeUp = {
+  initial: { opacity: 0, y: 16 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-10%" },
+  transition: { duration: 0.6, ease },
+};
+
+const labelClass = "text-[14px] font-medium text-graphite mb-1.5 block";
+const inputClass =
+  "w-full bg-surface border border-hairline rounded-xl px-4 py-3 text-ink focus:border-electric focus:ring-2 focus:ring-electric/20 outline-none transition-colors";
+
+function InfoRow({
+  icon: Icon,
+  label,
+  children,
+}: {
+  icon: typeof MapPin;
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex gap-4">
+      <span className="shrink-0 grid place-items-center h-11 w-11 rounded-xl bg-electric-tint text-electric">
+        <Icon size={20} strokeWidth={1.75} />
+      </span>
+      <div>
+        <p className="text-[12px] font-semibold uppercase tracking-wide text-muted mb-1">
+          {label}
+        </p>
+        {children}
+      </div>
+    </div>
+  );
+}
 
 export default function Kontakt() {
   const [sent, setSent] = useState(false);
 
   return (
-    <section id="kontakt" className="bg-panel schematic-grid py-28 md:py-36 border-b border-grid">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-15%" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-16 max-w-3xl"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-signal text-signal" />
-            <p className="font-mono text-[10px] tracking-[0.2em] text-signal uppercase">
-              SEC. 06 &middot; KONTAKT &middot; CHANNEL OPEN
-            </p>
-          </div>
-          <h2 className="font-sans font-semibold text-[52px] md:text-[80px] xl:text-[104px] text-bone leading-[0.9] -tracking-[0.025em]">
-            Lassen Sie
-            <br />
-            uns <span className="text-copper">reden.</span>
+    <section id="kontakt" className="bg-paper py-20 md:py-28">
+      <div className="container-xl">
+        {/* Header */}
+        <motion.div {...fadeUp} className="max-w-2xl mb-14 md:mb-16">
+          <span className="chip mb-5">Kontakt</span>
+          <h2 className="display font-display font-bold text-ink text-[44px] md:text-[64px]">
+            Lassen Sie uns <span className="text-electric">reden.</span>
           </h2>
-          <p className="font-mono text-[14px] text-mute leading-[1.7] mt-6 max-w-[520px]">
-            Rufen Sie an, schreiben Sie uns, oder nutzen Sie das Formular.
-            Antwortzeit: &lt; 24h. Immer von einem Menschen, nie von einem Bot.
+          <p className="text-graphite text-[17px] md:text-[18px] leading-relaxed mt-5">
+            Rufen Sie an, schreiben Sie uns oder nutzen Sie das Formular.
+            Antwortzeit unter 24 Stunden, immer von einem Menschen.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-12 gap-12 md:gap-16">
-          {/* Left info */}
-          <div className="md:col-span-5 space-y-10">
-            <div>
-              <p className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase mb-3">
-                &gt; STANDORT
-              </p>
-              <p className="font-mono text-[14px] text-bone leading-[1.75] tracking-[0.05em]">
-                HAUPTSTRASSE 23<br />
-                A-7431 BAD TATZMANNSDORF<br />
-                <span className="text-mute">BURGENLAND &middot; ÖSTERREICH</span>
-              </p>
-            </div>
-
-            <div className="w-20 h-px bg-copper" />
-
-            <div>
-              <p className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase mb-3">
-                &gt; TEL
-              </p>
-              <a
-                href="tel:+4333538080"
-                className="font-sans font-semibold text-[32px] md:text-[40px] text-copper hover:text-signal transition-colors duration-200 leading-none"
-              >
-                +43 3353 8080
-              </a>
-            </div>
-
-            <div>
-              <p className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase mb-3">
-                &gt; EMAIL
-              </p>
-              <a
-                href="mailto:office@elektro-schweitzer.at"
-                className="font-mono text-[14px] text-bone hover:text-copper transition-colors duration-200"
-              >
-                office@elektro-schweitzer.at
-              </a>
-            </div>
-
-            <div>
-              <p className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase mb-3">
-                &gt; HOURS
-              </p>
-              <p className="font-mono text-[14px] text-bone leading-[1.7] tracking-[0.05em]">
-                MO–FR &nbsp;08:00 – 12:00<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14:30 – 18:00<br />
-                <span className="text-mute">SA &middot; SO &middot; FT GESCHLOSSEN</span>
-              </p>
-            </div>
-          </div>
-
-          {/* Form */}
-          <div className="md:col-span-7">
-            {sent ? (
-              <div className="border border-signal/60 px-8 py-16 max-w-xl">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-2 w-2 rounded-full bg-signal text-signal" />
-                  <p className="font-mono text-[10px] tracking-[0.2em] text-signal uppercase">
-                    TRANSMISSION RECEIVED
-                  </p>
-                </div>
-                <p className="font-sans font-semibold text-[24px] md:text-[28px] text-bone leading-[1.3]">
-                  Vielen Dank. Wir melden uns
+        {/* Grid */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Left - info */}
+          <motion.div
+            {...fadeUp}
+            className="bg-surface border border-hairline rounded-2xl shadow-card p-7"
+          >
+            <div className="space-y-7">
+              <InfoRow icon={MapPin} label="Standort">
+                <p className="text-ink leading-relaxed">
+                  Hauptstraße 23
                   <br />
-                  <span className="text-copper">innerhalb 24 Stunden.</span>
+                  A-7431 Bad Tatzmannsdorf
+                  <br />
+                  <span className="text-muted">Burgenland · Österreich</span>
+                </p>
+              </InfoRow>
+
+              <div className="h-px bg-hairline" />
+
+              <InfoRow icon={Phone} label="Telefon">
+                <a
+                  href="tel:+4333538080"
+                  className="font-display font-bold text-[28px] md:text-[34px] text-electric hover:text-electric-ink transition-colors leading-none"
+                >
+                  +43 3353 8080
+                </a>
+              </InfoRow>
+
+              <InfoRow icon={Mail} label="E-Mail">
+                <a
+                  href="mailto:office@elektro-schweitzer.at"
+                  className="text-ink hover:text-electric transition-colors break-all"
+                >
+                  office@elektro-schweitzer.at
+                </a>
+              </InfoRow>
+
+              <InfoRow icon={Clock} label="Öffnungszeiten">
+                <p className="text-ink leading-relaxed">
+                  Mo-Fr  08:00-12:00 und 14:30-18:00
+                  <br />
+                  <span className="text-muted">
+                    Sa, So, Feiertag geschlossen
+                  </span>
+                </p>
+              </InfoRow>
+            </div>
+          </motion.div>
+
+          {/* Right - form */}
+          <motion.div {...fadeUp}>
+            {sent ? (
+              <div className="bg-surface border border-hairline rounded-2xl shadow-card p-7 md:p-9">
+                <span className="grid place-items-center h-14 w-14 rounded-2xl bg-electric-tint text-electric mb-5">
+                  <CheckCircle size={28} strokeWidth={1.75} />
+                </span>
+                <h3 className="font-display font-bold text-ink text-[26px] md:text-[30px]">
+                  Vielen Dank!
+                </h3>
+                <p className="text-graphite text-[17px] leading-relaxed mt-3">
+                  Wir melden uns innerhalb von 24 Stunden bei Ihnen.
                 </p>
               </div>
             ) : (
@@ -107,100 +136,112 @@ export default function Kontakt() {
                   e.preventDefault();
                   setSent(true);
                 }}
-                className="border border-grid p-8 md:p-10 max-w-xl"
+                className="bg-surface border border-hairline rounded-2xl shadow-card p-7 md:p-9"
               >
-                <p className="font-mono text-[10px] tracking-[0.2em] text-copper uppercase mb-8 flex items-center gap-3">
-                  <span className="h-1.5 w-1.5 rounded-full bg-copper" />
-                  ANFRAGEFORMULAR &middot; FORM.06
-                </p>
-
-                <div className="space-y-7">
+                <div className="space-y-5">
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase block mb-2">
-                      &gt; NAME *
+                    <label htmlFor="k-name" className={labelClass}>
+                      Name *
                     </label>
                     <input
+                      id="k-name"
+                      name="name"
                       type="text"
                       required
-                      className="w-full bg-transparent border-b border-grid text-bone py-2 text-[15px] font-sans focus:border-copper outline-none transition-colors placeholder:text-mute/40"
-                      placeholder="_"
+                      className={inputClass}
                     />
                   </div>
-                  <div className="grid md:grid-cols-2 gap-7">
+
+                  <div className="grid md:grid-cols-2 gap-5">
                     <div>
-                      <label className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase block mb-2">
-                        &gt; EMAIL *
+                      <label htmlFor="k-email" className={labelClass}>
+                        E-Mail *
                       </label>
                       <input
+                        id="k-email"
+                        name="email"
                         type="email"
                         required
-                        className="w-full bg-transparent border-b border-grid text-bone py-2 text-[15px] font-sans focus:border-copper outline-none transition-colors placeholder:text-mute/40"
-                        placeholder="_"
+                        className={inputClass}
                       />
                     </div>
                     <div>
-                      <label className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase block mb-2">
-                        &gt; TEL
+                      <label htmlFor="k-phone" className={labelClass}>
+                        Telefon
                       </label>
                       <input
+                        id="k-phone"
+                        name="phone"
                         type="tel"
-                        className="w-full bg-transparent border-b border-grid text-bone py-2 text-[15px] font-sans focus:border-copper outline-none transition-colors placeholder:text-mute/40"
-                        placeholder="_"
+                        className={inputClass}
                       />
                     </div>
                   </div>
+
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase block mb-2">
-                      &gt; BEREICH *
+                    <label htmlFor="k-bereich" className={labelClass}>
+                      Bereich *
                     </label>
                     <select
+                      id="k-bereich"
+                      name="bereich"
                       required
-                      className="w-full bg-transparent border-b border-grid text-bone py-2 text-[15px] font-sans focus:border-copper outline-none transition-colors appearance-none"
+                      defaultValue=""
+                      className={inputClass}
                     >
-                      <option value="" className="bg-panel">-- BITTE WÄHLEN --</option>
-                      <option value="sicherheit" className="bg-panel">Sicherheit &amp; Schutz</option>
-                      <option value="energie" className="bg-panel">Energie &amp; Photovoltaik</option>
-                      <option value="komfort" className="bg-panel">Komfort &amp; Smart Home</option>
-                      <option value="installation" className="bg-panel">Elektroinstallation</option>
-                      <option value="sonstiges" className="bg-panel">Sonstiges</option>
+                      <option value="" disabled>
+                        Bitte wählen
+                      </option>
+                      <option value="sicherheit">Sicherheit & Schutz</option>
+                      <option value="energie">Energie & Photovoltaik</option>
+                      <option value="komfort">Komfort & Smart Home</option>
+                      <option value="installation">Elektroinstallation</option>
+                      <option value="sonstiges">Sonstiges</option>
                     </select>
                   </div>
+
                   <div>
-                    <label className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase block mb-2">
-                      &gt; NACHRICHT *
+                    <label htmlFor="k-nachricht" className={labelClass}>
+                      Nachricht *
                     </label>
                     <textarea
+                      id="k-nachricht"
+                      name="nachricht"
                       required
                       rows={5}
-                      className="w-full bg-transparent border-b border-grid text-bone py-2 text-[15px] font-sans focus:border-copper outline-none transition-colors resize-none placeholder:text-mute/40"
-                      placeholder="_"
+                      className={`${inputClass} resize-none`}
                     />
                   </div>
+
                   <button
                     type="submit"
-                    className="w-full bg-copper text-panel font-mono text-[12px] tracking-[0.15em] uppercase py-4 hover:bg-signal transition-colors duration-200 mt-4"
+                    className="btn-electric w-full justify-center"
                   >
-                    [ TRANSMIT → ]
+                    Anfrage senden
+                    <ArrowRight size={18} strokeWidth={2} />
                   </button>
                 </div>
               </form>
             )}
-          </div>
+          </motion.div>
         </div>
 
         {/* Map */}
-        <div className="mt-20 border border-grid">
+        <motion.div
+          {...fadeUp}
+          className="mt-10 md:mt-12 rounded-2xl overflow-hidden border border-hairline"
+        >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2700!2d16.2270!3d47.3370!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSGF1cHRzdHJhw59lIDIzLCA3NDMxIEJhZCBUYXR6bWFubnNkb3Jm!5e0!3m2!1sde!2sat!4v1700000000000"
             width="100%"
-            height="400"
-            style={{ border: 0, display: "block", filter: "grayscale(60%) brightness(0.85) invert(0.92) hue-rotate(180deg)" }}
+            height="380"
+            style={{ border: 0, display: "block", filter: "grayscale(0.2)" }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Standort Elektro Schweitzer"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

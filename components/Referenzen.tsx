@@ -5,54 +5,50 @@ import Image from "next/image";
 
 const projects = [
   {
-    ref: "REF-01.2024",
-    type: "PHOTOVOLTAIK",
+    type: "Photovoltaik",
     name: "Familie Wagner",
     desc: "12-kWp-Anlage mit Speicher für ein Einfamilienhaus. Von der Beratung bis zur Inbetriebnahme in sechs Wochen.",
     data: [
-      ["PWR", "12.0 kWp"],
-      ["STOR", "8.0 kWh"],
-      ["LOC", "Bad Tatzmannsdorf"],
-      ["DUR", "06 W"],
+      ["Leistung", "12,0 kWp"],
+      ["Speicher", "8,0 kWh"],
+      ["Ort", "Bad Tatzmannsdorf"],
+      ["Dauer", "6 Wochen"],
     ],
     img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1000&q=85",
   },
   {
-    ref: "REF-02.2024",
-    type: "SMART HOME",
+    type: "Smart Home",
     name: "Villa Oberwart",
-    desc: "KNX-Komplettinstallation für vierzehn Räume: Licht, Beschattung, Heizung und Sicherheit — zentral steuerbar.",
+    desc: "KNX-Komplettinstallation für vierzehn Räume: Licht, Beschattung, Heizung und Sicherheit, zentral steuerbar.",
     data: [
-      ["SYS", "KNX"],
-      ["RMS", "14"],
-      ["LOC", "Oberwart"],
-      ["YR", "2024"],
+      ["System", "KNX"],
+      ["Räume", "14"],
+      ["Ort", "Oberwart"],
+      ["Jahr", "2024"],
     ],
     img: "https://images.unsplash.com/photo-1558002038-1055907df827?w=1000&q=85",
   },
   {
-    ref: "REF-03.2023",
-    type: "SICHERHEIT",
+    type: "Sicherheit",
     name: "Gewerbebetrieb Pinkafeld",
     desc: "Einbruchmeldeanlage mit zwölf Kameras und Perimeterschutz für einen regionalen Produktionsbetrieb.",
     data: [
-      ["CAM", "12"],
-      ["TYP", "Perimeter"],
-      ["LOC", "Pinkafeld"],
-      ["YR", "2023"],
+      ["Kameras", "12"],
+      ["Typ", "Perimeter"],
+      ["Ort", "Pinkafeld"],
+      ["Jahr", "2023"],
     ],
     img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1000&q=85",
   },
   {
-    ref: "REF-04.2024",
-    type: "INSTALLATION",
+    type: "Installation",
     name: "Mehrfamilienhaus Neubau",
     desc: "Komplette Elektrik für sechs Wohneinheiten. Neuinstallation nach aktuellen Normen, inklusive Zählerkasten.",
     data: [
-      ["UNIT", "6"],
-      ["TYP", "Neubau"],
-      ["LOC", "Güssing"],
-      ["YR", "2024"],
+      ["Einheiten", "6"],
+      ["Typ", "Neubau"],
+      ["Ort", "Güssing"],
+      ["Jahr", "2024"],
     ],
     img: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1000&q=85",
   },
@@ -60,73 +56,73 @@ const projects = [
 
 export default function Referenzen() {
   return (
-    <section id="referenzen" className="bg-trace py-28 md:py-36 border-b border-grid">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <section id="referenzen" className="bg-paper py-20 md:py-28">
+      <div className="container-xl">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-15%" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-20 max-w-3xl"
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-14 max-w-2xl"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-copper" />
-            <p className="font-mono text-[10px] tracking-[0.2em] text-copper uppercase">
-              SEC. 03 &middot; REFERENZEN &middot; INDEX 04
-            </p>
-          </div>
-          <h2 className="font-sans font-semibold text-[44px] md:text-[64px] xl:text-[80px] text-bone leading-[0.95] -tracking-[0.02em]">
-            Installiert.
-            <br />
-            <span className="text-copper">Verifiziert.</span>
+          <span className="chip mb-5">Referenzen</span>
+          <h2 className="display font-display font-bold text-[40px] md:text-[56px] text-ink leading-[1.05]">
+            Installiert.{" "}
+            <span className="text-electric">Verifiziert.</span>
           </h2>
+          <p className="font-sans text-graphite text-[17px] mt-4">
+            Eine Auswahl an Projekten aus dem Burgenland und Umgebung.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-x-6 gap-y-16">
+        <div className="grid md:grid-cols-2 gap-x-6 gap-y-12">
           {projects.map((p, i) => (
             <motion.article
-              key={p.ref}
+              key={p.name}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.6, delay: (i % 2) * 0.1, ease: "easeOut" }}
+              transition={{
+                duration: 0.7,
+                ease: [0.16, 1, 0.3, 1],
+                delay: (i % 2) * 0.1,
+              }}
               className="group"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <p className="font-mono text-[10px] tracking-[0.2em] text-copper uppercase">
-                  {p.ref}
-                </p>
-                <div className="h-px bg-grid flex-grow" />
-                <p className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase">
-                  {p.type}
-                </p>
-              </div>
-
-              <div className="relative aspect-[16/10] overflow-hidden border border-grid group-hover:border-copper/40 transition-colors duration-300">
+              <div className="relative aspect-[16/10] rounded-2xl border border-hairline overflow-hidden shadow-card transition-shadow duration-300 group-hover:shadow-card-hover">
                 <Image
                   src={p.img}
                   alt={p.name}
                   fill
-                  className="object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
-                  style={{ filter: "grayscale(85%) contrast(1.05)" }}
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
+                <span className="chip absolute left-4 top-4 backdrop-blur-sm bg-surface/90">
+                  {p.type}
+                </span>
               </div>
 
-              <h3 className="font-sans font-semibold text-[22px] md:text-[24px] text-bone mt-5 -tracking-[0.01em]">
+              <h3 className="font-display font-bold text-[22px] text-ink mt-5">
                 {p.name}
               </h3>
-              <p className="font-sans text-[15px] text-bone/60 leading-[1.65] mt-2 max-w-[480px]">
+              <p className="font-sans text-graphite text-[15px] leading-[1.65] mt-2 max-w-[480px]">
                 {p.desc}
               </p>
 
-              <dl className="mt-5 grid grid-cols-4 gap-3 border-t border-grid pt-4">
-                {p.data.map(([k, v]) => (
-                  <div key={k}>
-                    <dt className="font-mono text-[9px] tracking-[0.18em] text-mute uppercase">
+              <dl className="mt-5 flex flex-wrap items-stretch border-t border-hairline pt-4">
+                {p.data.map(([k, v], idx) => (
+                  <div
+                    key={k}
+                    className={
+                      idx === 0
+                        ? "pr-5"
+                        : "px-5 border-l border-hairline"
+                    }
+                  >
+                    <dt className="font-sans text-muted text-[12px] uppercase tracking-wide">
                       {k}
                     </dt>
-                    <dd className="font-mono text-[11px] text-copper mt-0.5">
+                    <dd className="font-sans text-ink font-semibold text-[14px] mt-1">
                       {v}
                     </dd>
                   </div>

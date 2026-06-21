@@ -1,6 +1,7 @@
-import SideLabel from "@/components/SideLabel";
+import ScrollProgress from "@/components/ScrollProgress";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import Marquee from "@/components/Marquee";
 import TrustStrip from "@/components/TrustStrip";
 import Leistungen from "@/components/Leistungen";
 import Referenzen from "@/components/Referenzen";
@@ -12,10 +13,11 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <SideLabel />
+      <ScrollProgress />
       <Navigation />
       <main>
         <Hero />
+        <Marquee />
         <TrustStrip />
         <Leistungen />
         <Referenzen />

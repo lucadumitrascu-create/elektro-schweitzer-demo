@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, Zap } from "lucide-react";
 
 const links = [
-  { label: "LEISTUNGEN", idx: "01", href: "#leistungen" },
-  { label: "REFERENZEN", idx: "02", href: "#referenzen" },
-  { label: "UNTERNEHMEN", idx: "03", href: "#unternehmen" },
-  { label: "KONTAKT", idx: "04", href: "#kontakt" },
+  { label: "Leistungen", href: "#leistungen" },
+  { label: "Referenzen", href: "#referenzen" },
+  { label: "Unternehmen", href: "#unternehmen" },
+  { label: "Kontakt", href: "#kontakt" },
 ];
 
 export default function Navigation() {
@@ -16,56 +16,59 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const h = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", h);
+    const h = () => setScrolled(window.scrollY > 24);
+    h();
+    window.addEventListener("scroll", h, { passive: true });
     return () => window.removeEventListener("scroll", h);
   }, []);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 h-[72px] transition-colors duration-300 ${
-          scrolled ? "bg-panel/95 backdrop-blur-sm border-b border-grid" : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-paper/85 backdrop-blur-md border-b border-hairline"
+            : "bg-transparent border-b border-transparent"
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-full flex items-center justify-between">
-          <a href="#" className="flex items-center gap-3">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-signal text-signal" />
-              <span className="font-sans font-semibold text-[15px] text-bone tracking-[0.02em]">
-                ELEKTRO SCHWEITZER
+        <div className="container-xl flex h-[72px] items-center justify-between">
+          <a href="#" className="flex items-center gap-2.5">
+            <span className="grid h-9 w-9 place-items-center rounded-lg bg-electric text-white shadow-electric">
+              <Zap size={18} strokeWidth={2.5} fill="currentColor" />
+            </span>
+            <span className="flex flex-col leading-none">
+              <span className="font-display text-[17px] font-700 font-bold tracking-tight text-ink">
+                Elektro Schweitzer
               </span>
-            </div>
-            <span className="hidden md:inline font-mono text-[10px] tracking-[0.18em] text-mute uppercase border-l border-grid pl-3">
-              EST. 1974
+              <span className="text-[11px] font-medium text-muted">
+                Meisterbetrieb seit 1974
+              </span>
             </span>
           </a>
 
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden items-center gap-8 lg:flex">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="group flex items-baseline gap-1.5 font-mono text-[11px] tracking-[0.15em] text-bone/60 hover:text-copper transition-colors"
+                className="text-[15px] font-medium text-graphite transition-colors hover:text-electric"
               >
-                <span className="text-copper/50 group-hover:text-copper">[{l.idx}]</span>
                 {l.label}
               </a>
             ))}
-            <a
-              href="tel:+4333538080"
-              className="ml-4 font-mono text-[11px] tracking-[0.15em] text-copper hover:text-signal transition-colors border border-copper/40 hover:border-signal px-4 py-2"
-            >
+            <a href="tel:+4333538080" className="btn-electric !px-5 !py-2.5 text-[14px]">
+              <Phone size={15} strokeWidth={2.5} />
               +43 3353 8080
             </a>
           </nav>
 
           <button
             onClick={() => setOpen(!open)}
-            className="lg:hidden text-bone"
+            className="grid h-11 w-11 place-items-center rounded-lg text-ink lg:hidden"
             aria-label="Menü"
+            aria-expanded={open}
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
+            {open ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </header>
@@ -76,29 +79,35 @@ export default function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-panel schematic-grid flex flex-col justify-center px-8 lg:hidden"
+            transition={{ duration: 0.22 }}
+            className="fixed inset-0 z-40 flex flex-col bg-paper px-6 pt-28 lg:hidden"
           >
-            {links.map((l, i) => (
-              <motion.a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                initial={{ opacity: 0, x: -8 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.05, duration: 0.25 }}
-                className="flex items-baseline gap-3 font-sans font-semibold text-[32px] text-bone py-3 hover:text-copper transition-colors"
-              >
-                <span className="font-mono text-[12px] text-copper">[{l.idx}]</span>
-                {l.label}
-              </motion.a>
-            ))}
+            <nav className="flex flex-col">
+              {links.map((l, i) => (
+                <motion.a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.04 * (i + 1), duration: 0.25 }}
+                  className="border-b border-hairline py-5 font-display text-[30px] font-semibold tracking-tight text-ink"
+                >
+                  {l.label}
+                </motion.a>
+              ))}
+            </nav>
             <a
               href="tel:+4333538080"
-              className="mt-8 font-mono text-[14px] tracking-[0.15em] text-copper border border-copper px-4 py-3 inline-block w-fit"
+              onClick={() => setOpen(false)}
+              className="btn-electric mt-10 w-full justify-center text-[16px]"
             >
+              <Phone size={17} strokeWidth={2.5} />
               +43 3353 8080
             </a>
+            <p className="mt-6 text-center text-[14px] text-muted">
+              Notdienst 24/7 · wenn es brennt, sind wir da.
+            </p>
           </motion.div>
         )}
       </AnimatePresence>

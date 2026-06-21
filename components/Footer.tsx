@@ -1,109 +1,154 @@
+import { Zap, Phone, Mail, MapPin } from "lucide-react";
+
+const leistungen = [
+  "Sicherheit",
+  "Energie",
+  "Komfort",
+  "Photovoltaik",
+  "Smart Home",
+  "Notdienst 24/7",
+];
+
+const unternehmen = [
+  { label: "Über uns", href: "#unternehmen" },
+  { label: "Referenzen", href: "#referenzen" },
+  { label: "Leistungen", href: "#leistungen" },
+  { label: "Kontakt", href: "#kontakt" },
+];
+
+const rechtliches = ["Impressum", "Datenschutz", "AGB"];
+
 export default function Footer() {
   return (
-    <footer className="bg-panel pt-20 pb-8 border-t border-grid">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-        <div className="mb-14 pb-10 border-b border-grid">
-          <div className="flex items-center gap-3 mb-4">
-            <p className="font-mono text-[10px] tracking-[0.2em] text-signal uppercase">
-              SYSTEM LIVE
-            </p>
-          </div>
-          <p className="font-sans font-semibold text-[44px] md:text-[72px] xl:text-[96px] text-bone leading-[0.9] -tracking-[0.025em]">
-            ELEKTRO
-            <br />
-            <span className="text-copper">SCHWEITZER</span>
-          </p>
-          <p className="font-mono text-[11px] tracking-[0.2em] text-mute uppercase mt-4">
-            MEISTERBETRIEB &middot; BAD TATZMANNSDORF &middot; EST. 1974
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.2em] text-copper uppercase mb-5">
-              &gt; LEISTUNGEN
-            </p>
-            <ul className="space-y-2 text-bone/50 font-mono text-[12px] tracking-[0.02em]">
-              <li>Sicherheit</li>
-              <li>Energie</li>
-              <li>Komfort</li>
-              <li>Photovoltaik</li>
-              <li>Smart Home</li>
-              <li>Notdienst 24/7</li>
-            </ul>
-          </div>
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.2em] text-copper uppercase mb-5">
-              &gt; UNTERNEHMEN
-            </p>
-            <ul className="space-y-2">
-              {[
-                { l: "Über uns", h: "#unternehmen" },
-                { l: "Referenzen", h: "#referenzen" },
-                { l: "Leistungen", h: "#leistungen" },
-                { l: "Kontakt", h: "#kontakt" },
-              ].map((x) => (
-                <li key={x.l}>
-                  <a
-                    href={x.h}
-                    className="text-bone/50 hover:text-copper transition-colors duration-200 font-mono text-[12px] tracking-[0.02em]"
-                  >
-                    {x.l}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.2em] text-copper uppercase mb-5">
-              &gt; KONTAKT
-            </p>
-            <div className="text-bone/50 font-mono text-[12px] tracking-[0.02em] space-y-2">
-              <p>Hauptstraße 23</p>
-              <p>A-7431 Bad Tatzmannsdorf</p>
-              <p className="pt-2">
-                <a
-                  href="tel:+4333538080"
-                  className="hover:text-copper transition-colors duration-200"
-                >
-                  +43 3353 8080
-                </a>
+    <footer className="bg-surface border-t border-hairline pt-14 pb-8">
+      <div className="container-xl">
+        {/* Brand row */}
+        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-start gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-electric text-white">
+              <Zap className="h-5 w-5" strokeWidth={2.25} />
+            </span>
+            <div>
+              <p className="font-display font-bold text-[22px] text-ink leading-tight">
+                Elektro Schweitzer
               </p>
-              <p>
-                <a
-                  href="mailto:office@elektro-schweitzer.at"
-                  className="hover:text-copper transition-colors duration-200"
-                >
-                  office@elektro-schweitzer.at
-                </a>
+              <p className="text-[14px] text-muted mt-0.5">
+                Meisterbetrieb für Elektrotechnik · Bad Tatzmannsdorf, seit 1974
               </p>
             </div>
           </div>
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.2em] text-copper uppercase mb-5">
-              &gt; RECHTLICHES
-            </p>
-            <ul className="space-y-2">
-              {["Impressum", "Datenschutz", "AGB"].map((l) => (
-                <li key={l}>
+
+          <a href="#kontakt" className="btn-electric self-start md:self-auto">
+            Angebot anfragen
+          </a>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-hairline mt-10 pt-12">
+          {/* Columns */}
+          <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
+            {/* Leistungen */}
+            <div>
+              <h3 className="font-display font-semibold text-[14px] text-ink mb-4">
+                Leistungen
+              </h3>
+              <ul className="space-y-2.5">
+                {leistungen.map((item) => (
+                  <li key={item}>
+                    <a
+                      href="#leistungen"
+                      className="text-graphite hover:text-electric text-[15px] transition-colors"
+                    >
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Unternehmen */}
+            <div>
+              <h3 className="font-display font-semibold text-[14px] text-ink mb-4">
+                Unternehmen
+              </h3>
+              <ul className="space-y-2.5">
+                {unternehmen.map((item) => (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      className="text-graphite hover:text-electric text-[15px] transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Kontakt */}
+            <div>
+              <h3 className="font-display font-semibold text-[14px] text-ink mb-4">
+                Kontakt
+              </h3>
+              <ul className="space-y-2.5 text-[15px]">
+                <li className="flex items-start gap-2 text-graphite">
+                  <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-muted" />
+                  <span>
+                    Hauptstraße 23
+                    <br />
+                    A-7431 Bad Tatzmannsdorf
+                  </span>
+                </li>
+                <li>
                   <a
-                    href="#"
-                    className="text-bone/50 hover:text-copper transition-colors duration-200 font-mono text-[12px] tracking-[0.02em]"
+                    href="tel:+4333538080"
+                    className="flex items-center gap-2 text-graphite hover:text-electric transition-colors"
                   >
-                    {l}
+                    <Phone className="h-4 w-4 shrink-0 text-muted" />
+                    +43 3353 8080
                   </a>
                 </li>
-              ))}
-            </ul>
+                <li>
+                  <a
+                    href="mailto:office@elektro-schweitzer.at"
+                    className="flex items-center gap-2 text-graphite hover:text-electric transition-colors"
+                  >
+                    <Mail className="h-4 w-4 shrink-0 text-muted" />
+                    office@elektro-schweitzer.at
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Rechtliches */}
+            <div>
+              <h3 className="font-display font-semibold text-[14px] text-ink mb-4">
+                Rechtliches
+              </h3>
+              <ul className="space-y-2.5">
+                {rechtliches.map((item) => (
+                  <li key={item}>
+                    <a
+                      href="#"
+                      className="text-graphite hover:text-electric text-[15px] transition-colors"
+                    >
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="mt-14 pt-6 border-t border-grid flex flex-wrap items-center justify-between gap-3">
-          <p className="font-mono text-[10px] tracking-[0.12em] text-mute uppercase">
-            © 2026 ELEKTRO SCHWEITZER GMBH &middot; HAUPTSTRASSE 23 &middot; 7431 BAD TATZMANNSDORF
+        {/* Bottom bar */}
+        <div className="border-t border-hairline mt-12 pt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-muted text-[13px]">
+            © 2026 Elektro Schweitzer GmbH · Hauptstraße 23 · 7431 Bad Tatzmannsdorf
           </p>
-          <p className="font-mono text-[10px] tracking-[0.12em] text-mute/60 uppercase">
-            v2.1 &middot; REV. 2026.04
+          <p className="flex items-center gap-1.5 text-muted text-[13px]">
+            <Zap className="h-3.5 w-3.5 text-electric" strokeWidth={2.25} />
+            Meisterbetrieb seit 1974
           </p>
         </div>
       </div>
