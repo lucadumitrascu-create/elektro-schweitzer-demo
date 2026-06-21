@@ -116,7 +116,7 @@ export default function Referenzen() {
               <h3 className="font-sans font-semibold text-[22px] md:text-[24px] text-bone mt-5 -tracking-[0.01em]">
                 {p.name}
               </h3>
-              <p className="font-sans text-[14px] text-bone/60 leading-[1.65] mt-2 max-w-[480px]">
+              <p className="font-sans text-[15px] text-bone/60 leading-[1.65] mt-2 max-w-[480px]">
                 {p.desc}
               </p>
 

@@ -73,7 +73,7 @@ export default function Leistungen() {
             <br />
             <span className="text-copper">Ein Meister.</span>
           </h2>
-          <p className="font-mono text-[13px] text-mute leading-[1.7] mt-6 max-w-[520px]">
+          <p className="font-mono text-[14px] text-mute leading-[1.7] mt-6 max-w-[520px]">
             Sicherheit, Energie und Komfort — drei Bereiche, geplant und ausgeführt
             von einem Betrieb. Keine Subunternehmer, keine Schnittstellen­verluste.
           </p>
@@ -131,9 +131,9 @@ export default function Leistungen() {
                     {b.items.map((item) => (
                       <li
                         key={item.code}
-                        className="group/row flex items-baseline gap-3 font-mono text-[12px] tracking-[0.02em] hover:text-copper transition-colors"
+                        className="group/row flex items-baseline gap-3 font-mono text-[14px] tracking-[0.02em] hover:text-copper transition-colors"
                       >
-                        <span className="text-copper/50 group-hover/row:text-copper text-[10px]">
+                        <span className="text-copper/50 group-hover/row:text-copper text-[11px]">
                           [{item.code}]
                         </span>
                         <span className="text-bone/80 group-hover/row:text-bone">

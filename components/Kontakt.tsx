@@ -27,7 +27,7 @@ export default function Kontakt() {
             <br />
             uns <span className="text-copper">reden.</span>
           </h2>
-          <p className="font-mono text-[13px] text-mute leading-[1.7] mt-6 max-w-[520px]">
+          <p className="font-mono text-[14px] text-mute leading-[1.7] mt-6 max-w-[520px]">
             Rufen Sie an, schreiben Sie uns, oder nutzen Sie das Formular.
             Antwortzeit: &lt; 24h. Immer von einem Menschen, nie von einem Bot.
           </p>
@@ -40,7 +40,7 @@ export default function Kontakt() {
               <p className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase mb-3">
                 &gt; STANDORT
               </p>
-              <p className="font-mono text-[13px] text-bone leading-[1.75] tracking-[0.05em]">
+              <p className="font-mono text-[14px] text-bone leading-[1.75] tracking-[0.05em]">
                 HAUPTSTRASSE 23<br />
                 A-7431 BAD TATZMANNSDORF<br />
                 <span className="text-mute">BURGENLAND &middot; ÖSTERREICH</span>
@@ -77,7 +77,7 @@ export default function Kontakt() {
               <p className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase mb-3">
                 &gt; HOURS
               </p>
-              <p className="font-mono text-[13px] text-bone leading-[1.7] tracking-[0.05em]">
+              <p className="font-mono text-[14px] text-bone leading-[1.7] tracking-[0.05em]">
                 MO–FR &nbsp;08:00 – 12:00<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14:30 – 18:00<br />
                 <span className="text-mute">SA &middot; SO &middot; FT GESCHLOSSEN</span>
