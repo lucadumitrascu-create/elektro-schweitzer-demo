@@ -4,7 +4,6 @@ export default function Footer() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="mb-14 pb-10 border-b border-grid">
           <div className="flex items-center gap-3 mb-4">
-            <span className="h-2 w-2 rounded-full bg-signal animate-pulse-led text-signal" />
             <p className="font-mono text-[10px] tracking-[0.2em] text-signal uppercase">
               SYSTEM LIVE
             </p>

@@ -42,7 +42,7 @@ export default function FuenfGruende() {
           className="mb-16 max-w-3xl"
         >
           <div className="flex items-center gap-3 mb-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-signal animate-pulse-led text-signal" />
+            <span className="h-1.5 w-1.5 rounded-full bg-signal text-signal" />
             <p className="font-mono text-[10px] tracking-[0.2em] text-signal uppercase">
               SEC. 04 &middot; WARUM SCHWEITZER
             </p>

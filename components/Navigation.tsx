@@ -31,7 +31,7 @@ export default function Navigation() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-full flex items-center justify-between">
           <a href="#" className="flex items-center gap-3">
             <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-signal animate-pulse-led text-signal" />
+              <span className="h-2 w-2 rounded-full bg-signal text-signal" />
               <span className="font-sans font-semibold text-[15px] text-bone tracking-[0.02em]">
                 ELEKTRO SCHWEITZER
               </span>

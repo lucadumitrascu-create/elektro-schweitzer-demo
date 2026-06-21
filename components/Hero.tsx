@@ -31,7 +31,7 @@ export default function Hero() {
               className="flex items-center gap-3 mb-8"
             >
               <span className="relative flex h-2 w-2">
-                <span className="absolute inset-0 rounded-full bg-signal animate-pulse-led text-signal" />
+                <span className="absolute inset-0 rounded-full bg-signal text-signal" />
               </span>
               <p className="font-mono text-[11px] tracking-[0.2em] text-signal uppercase">
                 SEC. 01 &middot; MANIFEST &middot; REV. 2026.04
@@ -155,7 +155,6 @@ export default function Hero() {
               {/* Label strip bottom */}
               <div className="absolute bottom-0 left-0 right-0 bg-panel/90 backdrop-blur-sm border-t border-copper/40 px-4 py-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-signal animate-pulse-led text-signal" />
                   <p className="font-mono text-[10px] tracking-[0.15em] text-bone uppercase">
                     FIG. 01 / WIRING IN PROGRESS
                   </p>
@@ -189,7 +188,6 @@ export default function Hero() {
       <div className="border-t border-grid">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-4 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-signal animate-pulse-led text-signal" />
             <p className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase">
               SYSTEM LIVE &middot; Mo–Fr 08:00–18:00 &middot; NOTDIENST 24/7
             </p>

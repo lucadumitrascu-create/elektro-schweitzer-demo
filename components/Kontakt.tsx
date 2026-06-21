@@ -17,7 +17,7 @@ export default function Kontakt() {
           className="mb-16 max-w-3xl"
         >
           <div className="flex items-center gap-3 mb-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-signal animate-pulse-led text-signal" />
+            <span className="h-1.5 w-1.5 rounded-full bg-signal text-signal" />
             <p className="font-mono text-[10px] tracking-[0.2em] text-signal uppercase">
               SEC. 06 &middot; KONTAKT &middot; CHANNEL OPEN
             </p>
@@ -90,7 +90,7 @@ export default function Kontakt() {
             {sent ? (
               <div className="border border-signal/60 px-8 py-16 max-w-xl">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="h-2 w-2 rounded-full bg-signal animate-pulse-led text-signal" />
+                  <span className="h-2 w-2 rounded-full bg-signal text-signal" />
                   <p className="font-mono text-[10px] tracking-[0.2em] text-signal uppercase">
                     TRANSMISSION RECEIVED
                   </p>
