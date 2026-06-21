@@ -24,22 +24,11 @@ export default function Hero() {
       <div className="container-xl relative grid items-center gap-12 lg:grid-cols-12 lg:gap-12">
         {/* LEFT */}
         <div className="lg:col-span-6">
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease }}
-          >
-            <span className="chip">
-              <span className="h-1.5 w-1.5 rounded-full bg-electric" />
-              Bad Tatzmannsdorf · Burgenland
-            </span>
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.08, ease }}
-            className="display mt-6 font-display text-[52px] font-bold text-ink md:text-[76px] xl:text-[88px]"
+            className="display font-display text-[52px] font-bold text-ink md:text-[76px] xl:text-[88px]"
           >
             Strom, der
             <br />
